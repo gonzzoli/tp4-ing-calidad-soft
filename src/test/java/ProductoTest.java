@@ -14,6 +14,6 @@ public class ProductoTest {
     @Test
     void TestMultiplicar() {
         // se que es 63, pero para probar
-        assertEquals(Producto.multiplicar(9,7), 62);
+        assertEquals(Producto.multiplicar(9,7), 64);
     }
 }
