@@ -1,0 +1,30 @@
+name: Integracion Continua para TP4 con Java
+run-name: Push/pull request por ${{ github.actor }} a la rama test.
+
+# Con esto el workflow solo se ejecuta cuando hagamos push o pull requests
+# a la rama test.
+on:
+  push:
+    branches: [ "test" ]
+  pull_request:
+    branches: [ "test" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # este "uses" clona el ultimo commit, osea el que se envió con la acción.
+    - uses: actions/checkout@v4
+    - name: Instalar Java 18
+      uses: actions/setup-java@v3
+      with:
+        java-version: '18'
+        distribution: 'temurin'
+        cache: maven
+    - name: Hacer el build con Maven
+    # y esto directamente descarga dependencias, buildea las clases, corre los tests
+    # y empaqueta las clases en un archivo JAR o WAR creo. Todo porque se usa 
+    # el comando "package"
+      run: mvn -B package --file pom.xml
