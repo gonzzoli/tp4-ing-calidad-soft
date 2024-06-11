@@ -31,4 +31,21 @@ public class ProductoTest {
     void TestValidarVariantes(){
         assertEquals(Producto.validarVariantes("remera"),"tiene variantes");
     }
+
+    @Test
+    void TestValidarCategoria(){
+        assertTrue(Producto.categoriaValida("ropa"));
+    }
+
+    @Test
+    void TestValidarSubtotal(){
+        assertEquals(Producto.subTotal(2, 4),8);
+    }
+
+    @Test
+    void TestEstadoCompraRealizada(){
+        assertTrue(Producto.compraRealizada("Celular", "Pendiente"));
+    }
+
+
 }
