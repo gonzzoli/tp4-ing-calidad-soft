@@ -16,4 +16,36 @@ public class ProductoTest {
         // se que es 63, pero para probar
         assertEquals(Producto.multiplicar(9,7), 64);
     }
+
+    @Test
+    void TestValidarCompraConStock(){
+        assertTrue(Producto.validarCompraConStock(60, 5));
+    }
+
+    @Test
+    void TestValidarTipoProductos(){
+        assertFalse(Producto.compararTipoDeProductos("remera","pantalon"));
+    }
+
+    @Test
+    void TestValidarVariantes(){
+        assertEquals(Producto.validarVariantes("remera"),"tiene variantes");
+    }
+
+    @Test
+    void TestValidarCategoria(){
+        assertTrue(Producto.categoriaValida("ropa"));
+    }
+
+    @Test
+    void TestValidarSubtotal(){
+        assertEquals(Producto.subTotal(2, 4),8);
+    }
+
+    @Test
+    void TestEstadoCompraRealizada(){
+        assertTrue(Producto.compraRealizada("Celular", "Pendiente"));
+    }
+
+
 }
