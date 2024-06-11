@@ -24,7 +24,6 @@ public class Producto {
             return "no tiene variantes";
         }
     }
-
     public static boolean categoriaValida(String categoria) {
         if (categoria.equals("ropa")) {
             return true;
@@ -43,6 +42,7 @@ public class Producto {
         }
         else{return false;}
     }
+
 }
 
 

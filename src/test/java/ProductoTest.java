@@ -16,6 +16,7 @@ public class ProductoTest {
         // se que es 63, pero para probar
         assertEquals(Producto.multiplicar(9,7), 64);
     }
+
     @Test
     void TestValidarCompraConStock(){
         assertTrue(Producto.validarCompraConStock(60, 5));
@@ -45,5 +46,6 @@ public class ProductoTest {
     void TestEstadoCompraRealizada(){
         assertTrue(Producto.compraRealizada("Celular", "Pendiente"));
     }
+
 
 }
