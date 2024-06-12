@@ -47,5 +47,13 @@ public class ProductoTest {
         assertTrue(Producto.compraRealizada("Celular", "Pendiente"));
     }
 
+    @Test
+    void TestProductoVisible(){ assertTrue(Producto.productoVisible("Pantalon azul", "Visible"));}
+
+    @Test
+    void TestCompararPreciosProducto(){ assertEquals(Producto.CompararPreciosProducto( 10, 12), "precio 1 menor a precio 2");}
+
+    @Test
+    void TestValidarStockMayorA0(){ assertTrue(Producto.validarStockMayorA0( "Remera roja", 15));}
 
 }
