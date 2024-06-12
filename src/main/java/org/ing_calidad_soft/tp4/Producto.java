@@ -1,13 +1,13 @@
 package org.ing_calidad_soft.tp4;
 
-public class Producto {
-    public static int sumar(int a, int b) {
-        return a + b;
-    }
+import java.util.ArrayList;
 
-    public static int multiplicar(int a, int b) {
-        return a * b;
-    }
+public class Producto {
+    public static int maximoVariantes = 10;
+    private double precio;
+    private double descuentoAplicado;
+    private boolean esVariante;
+    private ArrayList<Producto> productosVariantes = new ArrayList<>();
 
     public static boolean validarCompraConStock(int stockActual, int productos) {
         return stockActual > productos;
@@ -69,6 +69,39 @@ public class Producto {
         } else {
             return false;
         }
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public double getDescuentoAplicado() {
+        return descuentoAplicado;
+    }
+
+    public void setDescuentoAplicado(double descuentoAplicado) {
+        this.descuentoAplicado = descuentoAplicado;
+    }
+
+    public double getPrecioConDescuento() {
+        return precio - precio*descuentoAplicado;
+    }
+
+    public void agregarVariante(Producto variante) throws ExceptionLimiteVariantesAlcanzado, ExceptionVarianteNoPuedeSerProductoBase {
+        if (!productosVariantes.isEmpty() && productosVariantes.size() == maximoVariantes) throw new ExceptionLimiteVariantesAlcanzado(maximoVariantes);
+        if (this.esVariante) throw new ExceptionVarianteNoPuedeSerProductoBase();
+        variante.setEsVariante(true);
+        productosVariantes.add(variante);
+    }
+
+    public boolean getEsVariante() {
+        return esVariante;
+    }
+
+    public void setEsVariante(boolean esVariante) {
+        this.esVariante = esVariante;
     }
 }
 
